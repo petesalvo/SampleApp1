@@ -32,103 +32,132 @@
     [self givenACardNumber:@"12345678901234567890"];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:false];
-    [self thenCardTypeIs:Unknown];
+    [self thenCardIssuerIs:Unknown];
 }
-
 
 -(void)testCardTooShortIsInvalid {
     [self givenACardNumber:@"123456789"];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:false];
-    [self thenCardTypeIs:Unknown];
-
+    [self thenCardIssuerIs:Unknown];
 }
 
 -(void)testCardWithNonNumericCharsIsInvalid {
     [self givenACardNumber:@"Lorem ipsum"];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:false];
-    [self thenCardTypeIs:Unknown];
+    [self thenCardIssuerIs:Unknown];
+}
 
+- (void)testCardNumberWithSpacesIsInvalid {
+    [self givenACardNumber:@"4046 4867 1418 3026"];
+    [self whenCreditCardObjectInitialized];
+    [self thenCardNumberIsValid:false];
+    [self thenCardIssuerIs:Unknown];
+}
+
+// Fun fact: I remember random sequences of numbers. This was my credit card number in college.
+// It is (of course) no longer active...
+
+- (void)testSameCardNumberWithoutSpacesIsInvalid {
+    [self givenACardNumber:@"4046486714183026"];
+    [self whenCreditCardObjectInitialized];
+    [self thenCardNumberIsValid:true];
+    [self thenCardIssuerIs:Visa];
 }
 
 -(void)testInstantiatCardWithNilWillNotCrash {
     [self givenACardNumber:nil];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:false];
-    [self thenCardTypeIs:Unknown];
-
+    [self thenCardIssuerIs:Unknown];
 }
 
 -(void) testValidAmericanExpress {
     [self givenACardNumber:@"378282246310005"];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:true];
-    [self thenCardTypeIs:AmericanExpress];
+    [self thenCardIssuerIs:AmericanExpress];
 }
 
 -(void) testValidAmericanExpressTwo {
     [self givenACardNumber:@"371449635398431"];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:true];
-    [self thenCardTypeIs:AmericanExpress];
+    [self thenCardIssuerIs:AmericanExpress];
 }
 
 -(void) testValidAmericanExpressCorporate {
     [self givenACardNumber:@"378734493671000"];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:true];
-    [self thenCardTypeIs:AmericanExpress];
+    [self thenCardIssuerIs:AmericanExpress];
 }
 
 -(void) testValidDiscover {
     [self givenACardNumber:@"6011111111111117"];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:true];
-    [self thenCardTypeIs:Discover];
+    [self thenCardIssuerIs:Discover];
 }
 
 -(void) testValidDiscoverTwo {
     [self givenACardNumber:@"6011000990139424"];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:true];
-    [self thenCardTypeIs:Discover];
+    [self thenCardIssuerIs:Discover];
 }
 
 -(void) testValidMastercardOne {
     [self givenACardNumber:@"5555555555554444"];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:true];
-    [self thenCardTypeIs:MasterCard];
+    [self thenCardIssuerIs:MasterCard];
 }
 
 -(void) testValidMastercardTwo {
     [self givenACardNumber:@"5105105105105100"];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:true];
-    [self thenCardTypeIs:MasterCard];
+    [self thenCardIssuerIs:MasterCard];
 }
 
 -(void) testValidVisaOne {
     [self givenACardNumber:@"4111111111111111"];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:true];
-    [self thenCardTypeIs:Visa];
+    [self thenCardIssuerIs:Visa];
 }
 
 -(void) testValidVisaTwo {
     [self givenACardNumber:@"4012888888881881"];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:true];
-    [self thenCardTypeIs:Visa];
+    [self thenCardIssuerIs:Visa];
 }
 
 -(void) testValidVisa13Characters {
     [self givenACardNumber:@"4222222222222"];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:true];
-    [self thenCardTypeIs:Visa];
+    [self thenCardIssuerIs:Visa];
 }
+
+-(void) testVisaWith13CharactersWithBadCheckDigitIsInvalid {
+    [self givenACardNumber:@"4222222222221"];
+    [self whenCreditCardObjectInitialized];
+    [self thenCardNumberIsValid:false];
+    [self thenCardIssuerIs:Visa];
+}
+
+// For the purposes of this Sample App, JCB cards are considered invalid
+-(void) testValidJCBCardIsConsideredInvalid {
+    [self givenACardNumber:@"3566002020360505"];
+    [self whenCreditCardObjectInitialized];
+    [self thenCardNumberIsValid:false];
+    [self thenCardIssuerIs:Unknown];
+}
+
 
 #pragma mark - BDD utility methods
 
@@ -138,7 +167,6 @@
 
 -(void) whenCreditCardObjectInitialized {
     creditCard = [[ECCreditCard alloc] initWithCardNumber:cardNumber];
-
 }
 
 -(void) thenCardNumberIsValid: (bool) valid {
@@ -146,9 +174,9 @@
     XCTAssertTrue(valid == isValidCardNumber, @"Expected card number to be %@", valid ? @"valid" : @"invalid");
 }
 
--(void) thenCardTypeIs: (BankCardType) cardType {
-    BankCardType bankCardType = creditCard.cardType;
-    XCTAssertTrue(bankCardType == cardType, @"Incorrect card type");
+-(void) thenCardIssuerIs: (BankCardIssuer) issuer {
+    BankCardIssuer cardIssuer = creditCard.cardIssuer;
+    XCTAssertTrue(issuer == cardIssuer, @"Incorrect card type");
 }
 
 

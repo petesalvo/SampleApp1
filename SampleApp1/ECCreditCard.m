@@ -13,7 +13,7 @@
 @interface ECCreditCard() {
 
     @private NSString * bankCardNumber;
-    @private BankCardType bankCardType;
+    @private BankCardIssuer bankCardIssuer;
 
 }
 @end
@@ -31,7 +31,7 @@ static NSString * VISA_REGEX       = @"^4[0-9]{6,}$";
     }
     
     bankCardNumber = number;
-    bankCardType   = [self determineCardType];
+    bankCardIssuer   = [self determineCardIssuer];
     
     return self;
 }
@@ -41,7 +41,7 @@ static NSString * VISA_REGEX       = @"^4[0-9]{6,}$";
     if (!bankCardNumber) return false;
 
     int cardLength = (int) [bankCardNumber length];
-    switch (bankCardType) {
+    switch (bankCardIssuer) {
         case AmericanExpress:
             if (cardLength != 15) return false;
             break;
@@ -84,11 +84,11 @@ static NSString * VISA_REGEX       = @"^4[0-9]{6,}$";
 
 }
 
--(BankCardType) cardType {
-    return bankCardType;
+-(BankCardIssuer) cardIssuer {
+    return bankCardIssuer;
 }
 
--(BankCardType) determineCardType {
+-(BankCardIssuer) determineCardIssuer {
 
     if ([self matchesRegex: AMEX_REGEX]) return AmericanExpress;
     if ([self matchesRegex: DISCOVER_REGEX]) return Discover;

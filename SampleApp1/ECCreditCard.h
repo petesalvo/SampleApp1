@@ -14,13 +14,13 @@ typedef enum {
     Discover         = 2,
     MasterCard       = 3,
     Visa             = 4
-} BankCardType;
+} BankCardIssuer;
 
 
 @interface ECCreditCard : NSObject
 
 @property (nonatomic, readonly) bool isValidCardNumber;
-@property (nonatomic, readonly) BankCardType cardType;
+@property (nonatomic, readonly) BankCardIssuer cardIssuer;
 
 -(id) initWithCardNumber: (NSString *) number;
 
