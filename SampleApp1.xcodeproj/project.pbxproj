@@ -13,8 +13,8 @@
 		857777141BCF2795001FEF0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857777121BCF2795001FEF0B /* Main.storyboard */; };
 		857777161BCF2795001FEF0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 857777151BCF2795001FEF0B /* Assets.xcassets */; };
 		857777191BCF2795001FEF0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857777171BCF2795001FEF0B /* LaunchScreen.storyboard */; };
-		857777241BCF2795001FEF0B /* SampleApp1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 857777231BCF2795001FEF0B /* SampleApp1Tests.m */; };
 		8577772F1BCF283D001FEF0B /* ECCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8577772E1BCF283D001FEF0B /* ECCreditCard.m */; settings = {ASSET_TAGS = (); }; };
+		857777361BCF2E02001FEF0B /* ECCreditCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 857777351BCF2E02001FEF0B /* ECCreditCardTests.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,10 +39,10 @@
 		857777181BCF2795001FEF0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8577771A1BCF2795001FEF0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8577771F1BCF2795001FEF0B /* SampleApp1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleApp1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		857777231BCF2795001FEF0B /* SampleApp1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleApp1Tests.m; sourceTree = "<group>"; };
 		857777251BCF2795001FEF0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8577772E1BCF283D001FEF0B /* ECCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECCreditCard.m; sourceTree = "<group>"; };
 		857777341BCF2906001FEF0B /* ECCreditCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECCreditCard.h; sourceTree = "<group>"; };
+		857777351BCF2E02001FEF0B /* ECCreditCardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECCreditCardTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +110,8 @@
 		857777221BCF2795001FEF0B /* SampleApp1Tests */ = {
 			isa = PBXGroup;
 			children = (
-				857777231BCF2795001FEF0B /* SampleApp1Tests.m */,
 				857777251BCF2795001FEF0B /* Info.plist */,
+				857777351BCF2E02001FEF0B /* ECCreditCardTests.m */,
 			);
 			path = SampleApp1Tests;
 			sourceTree = "<group>";
@@ -227,7 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				857777241BCF2795001FEF0B /* SampleApp1Tests.m in Sources */,
+				857777361BCF2E02001FEF0B /* ECCreditCardTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +409,7 @@
 				8577772A1BCF2795001FEF0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8577772B1BCF2795001FEF0B /* Build configuration list for PBXNativeTarget "SampleApp1Tests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +418,7 @@
 				8577772D1BCF2795001FEF0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
