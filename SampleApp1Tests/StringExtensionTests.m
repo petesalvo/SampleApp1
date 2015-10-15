@@ -12,6 +12,7 @@
 @interface StringExtensionTests : XCTestCase {
     @private NSString * normalString;
     @private NSString * reversedString;
+    @private bool isNumericOnly;
     
 }
 @end
@@ -40,6 +41,36 @@
     [self thenReversedStringIs: @"0987654321"];
 }
 
+-(void) testNumericString {
+    [self givenAString:@"1234567890"];
+    [self whenStringCheckedForNonNumericCharacters];
+    [self thenStringContainsNumericCharactersOnly: true];
+}
+
+-(void) testNonNumericString {
+    [self givenAString:@"lorem ipsum"];
+    [self whenStringCheckedForNonNumericCharacters];
+    [self thenStringContainsNumericCharactersOnly: false];
+}
+
+- (void)testNonNumericStringIsNotValid {
+    [self givenAString:@"Cat in the hat"];
+    [self whenStringCheckedForNonNumericCharacters];
+    [self thenStringContainsNumericCharactersOnly:false];
+}
+
+- (void)testSpacesInNumericStringAreNotValid {
+    [self givenAString:@"123 234 3456 3456"];
+    [self whenStringCheckedForNonNumericCharacters];
+    [self thenStringContainsNumericCharactersOnly:false];
+}
+
+- (void)testDecimalsInNumericStringAreNotValid {
+    [self givenAString:@"123.234.3456.3456"];
+    [self whenStringCheckedForNonNumericCharacters];
+    [self thenStringContainsNumericCharactersOnly:false];
+}
+
 -(void) givenAString: (NSString *) string {
     normalString = string;
 }
@@ -48,8 +79,16 @@
     reversedString = [normalString reversedString];
 }
 
+-(void) whenStringCheckedForNonNumericCharacters {
+    isNumericOnly = [normalString isNumericCharactersOnly];
+}
+
 -(void) thenReversedStringIs:(NSString *) string {
     XCTAssertTrue([reversedString isEqualToString:string], @"Expected reversed string to be %@ but was %@", string, reversedString);
+}
+
+-(void) thenStringContainsNumericCharactersOnly:(bool) numericOnly {
+    XCTAssertTrue(isNumericOnly == numericOnly, @"Expected string to have %@ characters only", numericOnly ? @"numeric" : @"non-numeric");
 }
 
 @end

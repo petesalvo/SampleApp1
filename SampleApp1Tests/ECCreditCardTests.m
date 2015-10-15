@@ -10,8 +10,8 @@
 #import "ECCreditCard.h"
 
 @interface ECCreditCardTests : XCTestCase {
-    NSString * cardNumber;
-    ECCreditCard * creditCard;
+    @private NSString * cardNumber;
+    @private ECCreditCard * creditCard;
 }
 
 @end

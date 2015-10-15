@@ -22,4 +22,8 @@
     return stringToReturn;
 }
 
+-(bool) isNumericCharactersOnly {
+    return [self rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]].location == NSNotFound;
+}
+
 @end

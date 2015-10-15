@@ -25,3 +25,5 @@ typedef enum {
 -(id) initWithCardNumber: (NSString *) number;
 
 @end
+
+

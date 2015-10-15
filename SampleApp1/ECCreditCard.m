@@ -7,15 +7,13 @@
 //
 
 #import "ECCreditCard.h"
-#import "NSString+NSStringExtensions.h"
-
+#import "CheckDigitValidator.h"
 
 @interface ECCreditCard() {
-
     @private NSString * bankCardNumber;
     @private BankCardIssuer bankCardIssuer;
-
 }
+
 @end
 
 static NSString * AMEX_REGEX       = @"^3[47][0-9]{5,}$";
@@ -58,31 +56,11 @@ static NSString * VISA_REGEX       = @"^4[0-9]{6,}$";
         break;
     }
     
-    if (![self isValidCheckDigit]) return false;
+    if (![CheckDigitValidator isValidCheckDigit: bankCardNumber]) return false;
     
     return true;
 }
 
--(bool) isValidCheckDigit {
-    
-    NSMutableString * reversedCardNumber = [bankCardNumber reversedString];
-    
-    int sumOfOddDigits  = 0;
-    int sumOfEvenDigits = 0;
-    
-    for (int i = 0; i < [reversedCardNumber length]; i++) {
-        int currentDigit = [[NSString stringWithFormat:@"%C", [reversedCardNumber characterAtIndex:i]] intValue];
-        
-        if (i % 2 == 0) {
-            sumOfEvenDigits += currentDigit;
-        } else {
-            sumOfOddDigits += currentDigit / 5 + (2 * currentDigit) % 10;
-        }
-    }
-    
-    return (sumOfOddDigits + sumOfEvenDigits) % 10 == 0;
-
-}
 
 -(BankCardIssuer) cardIssuer {
     return bankCardIssuer;

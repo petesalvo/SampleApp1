@@ -11,5 +11,6 @@
 @interface NSString (NSStringExtensions)
 
 -(NSMutableString *) reversedString;
+-(bool) isNumericCharactersOnly;
 
 @end
