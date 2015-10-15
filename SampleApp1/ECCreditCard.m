@@ -7,6 +7,8 @@
 //
 
 #import "ECCreditCard.h"
+#import "NSString+NSStringExtensions.h"
+
 
 @interface ECCreditCard() {
 
@@ -56,15 +58,30 @@ static NSString * VISA_REGEX       = @"^4[0-9]{6,}$";
         break;
     }
     
+    if (![self isValidCheckDigit]) return false;
     
     return true;
 }
 
 -(bool) isValidCheckDigit {
-    NSMutableString * reveredCardNumber = [NSMutableString stringWithCapacity:[bankCardNumber length]];
     
+    NSMutableString * reversedCardNumber = [bankCardNumber reversedString];
     
-    return true;
+    int sumOfOddDigits  = 0;
+    int sumOfEvenDigits = 0;
+    
+    for (int i = 0; i < [reversedCardNumber length]; i++) {
+        int currentDigit = [[NSString stringWithFormat:@"%C", [reversedCardNumber characterAtIndex:i]] intValue];
+        
+        if (i % 2 == 0) {
+            sumOfEvenDigits += currentDigit;
+        } else {
+            sumOfOddDigits += currentDigit / 5 + (2 * currentDigit) % 10;
+        }
+    }
+    
+    return (sumOfOddDigits + sumOfEvenDigits) % 10 == 0;
+
 }
 
 -(BankCardType) cardType {

@@ -15,6 +15,7 @@
 		857777191BCF2795001FEF0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857777171BCF2795001FEF0B /* LaunchScreen.storyboard */; };
 		8577772F1BCF283D001FEF0B /* ECCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8577772E1BCF283D001FEF0B /* ECCreditCard.m */; settings = {ASSET_TAGS = (); }; };
 		857777361BCF2E02001FEF0B /* ECCreditCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 857777351BCF2E02001FEF0B /* ECCreditCardTests.m */; settings = {ASSET_TAGS = (); }; };
+		857777391BCF474D001FEF0B /* NSString+NSStringExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 857777381BCF474D001FEF0B /* NSString+NSStringExtensions.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		8577772E1BCF283D001FEF0B /* ECCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECCreditCard.m; sourceTree = "<group>"; };
 		857777341BCF2906001FEF0B /* ECCreditCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECCreditCard.h; sourceTree = "<group>"; };
 		857777351BCF2E02001FEF0B /* ECCreditCardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECCreditCardTests.m; sourceTree = "<group>"; };
+		857777371BCF474D001FEF0B /* NSString+NSStringExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+NSStringExtensions.h"; path = "../NSString+NSStringExtensions.h"; sourceTree = "<group>"; };
+		857777381BCF474D001FEF0B /* NSString+NSStringExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NSStringExtensions.m"; path = "../NSString+NSStringExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 				8577770D1BCF2795001FEF0B /* AppDelegate.m */,
 				857777341BCF2906001FEF0B /* ECCreditCard.h */,
 				8577772E1BCF283D001FEF0B /* ECCreditCard.m */,
+				857777371BCF474D001FEF0B /* NSString+NSStringExtensions.h */,
+				857777381BCF474D001FEF0B /* NSString+NSStringExtensions.m */,
 				8577770F1BCF2795001FEF0B /* ViewController.h */,
 				857777101BCF2795001FEF0B /* ViewController.m */,
 				857777121BCF2795001FEF0B /* Main.storyboard */,
@@ -216,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				857777391BCF474D001FEF0B /* NSString+NSStringExtensions.m in Sources */,
 				857777111BCF2795001FEF0B /* ViewController.m in Sources */,
 				8577770E1BCF2795001FEF0B /* AppDelegate.m in Sources */,
 				8577772F1BCF283D001FEF0B /* ECCreditCard.m in Sources */,
