@@ -32,6 +32,7 @@
     [self givenACardNumber:@"12345678901234567890"];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:false];
+    [self thenCardTypeIs:Unknown];
 }
 
 
@@ -39,18 +40,24 @@
     [self givenACardNumber:@"123456789"];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:false];
+    [self thenCardTypeIs:Unknown];
+
 }
 
 -(void)testCardWithNonNumericCharsIsInvalid {
     [self givenACardNumber:@"Lorem ipsum"];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:false];
+    [self thenCardTypeIs:Unknown];
+
 }
 
 -(void)testInstantiatCardWithNilWillNotCrash {
     [self givenACardNumber:nil];
     [self whenCreditCardObjectInitialized];
     [self thenCardNumberIsValid:false];
+    [self thenCardTypeIs:Unknown];
+
 }
 
 -(void) testValidAmericanExpress {

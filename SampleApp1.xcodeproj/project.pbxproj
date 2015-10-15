@@ -16,6 +16,7 @@
 		8577772F1BCF283D001FEF0B /* ECCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8577772E1BCF283D001FEF0B /* ECCreditCard.m */; settings = {ASSET_TAGS = (); }; };
 		857777361BCF2E02001FEF0B /* ECCreditCardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 857777351BCF2E02001FEF0B /* ECCreditCardTests.m */; settings = {ASSET_TAGS = (); }; };
 		857777391BCF474D001FEF0B /* NSString+NSStringExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 857777381BCF474D001FEF0B /* NSString+NSStringExtensions.m */; settings = {ASSET_TAGS = (); }; };
+		8577773B1BCF4AC1001FEF0B /* StringExtensionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8577773A1BCF4AC1001FEF0B /* StringExtensionTests.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		857777351BCF2E02001FEF0B /* ECCreditCardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECCreditCardTests.m; sourceTree = "<group>"; };
 		857777371BCF474D001FEF0B /* NSString+NSStringExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+NSStringExtensions.h"; path = "../NSString+NSStringExtensions.h"; sourceTree = "<group>"; };
 		857777381BCF474D001FEF0B /* NSString+NSStringExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NSStringExtensions.m"; path = "../NSString+NSStringExtensions.m"; sourceTree = "<group>"; };
+		8577773A1BCF4AC1001FEF0B /* StringExtensionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringExtensionTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			children = (
 				857777251BCF2795001FEF0B /* Info.plist */,
 				857777351BCF2E02001FEF0B /* ECCreditCardTests.m */,
+				8577773A1BCF4AC1001FEF0B /* StringExtensionTests.m */,
 			);
 			path = SampleApp1Tests;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8577773B1BCF4AC1001FEF0B /* StringExtensionTests.m in Sources */,
 				857777361BCF2E02001FEF0B /* ECCreditCardTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
